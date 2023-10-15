@@ -1,8 +1,6 @@
-import { header, footer } from "../javascript/components/page-persistent";
+import smallCss from '../css/small.style.css' assert { type: 'css' };
+import largeCss from '../css/large.style.css' assert { type: 'css' };
 
-import { renderWithLiteral } from "../javascript/utils/templates";
+import { loadHeaderFooter } from '../javascript/utils/templates';
 
-const mainElement = document.querySelector("main");
-
-renderWithLiteral(header(), mainElement);
-renderWithLiteral(footer(), mainElement, 'beforeend');
+loadHeaderFooter();

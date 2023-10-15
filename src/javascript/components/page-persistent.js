@@ -1,11 +1,10 @@
 export const header = () =>
     `<div class="main-header">
-        <a class="title" href="/">Event Search</a>
-        <ul class="nav-bar">
-            <li class="nav-item"><a href="/">Home</a></li>
-            <li class="nav-item"><a href="/search-events/">Search Events</a></li>
-            <li class="nav-item"><a href="/saved-events/">Saved Events</a></li>
-        </ul>
+        <a class="title" href="/">Ticket Scout</a>
+        <div class="nav-bar">
+        <span class="nav-display">⇓</span>
+        <ul class="nav-link-container hidden"></ul>
+        </div>
     </div>`;
 
 export const footer = () => 
