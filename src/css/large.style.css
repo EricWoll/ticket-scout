@@ -4,14 +4,17 @@
             background-color: var(--light-background-color);
             color: var(--light-font-color);
         }
+        header {
+            background-color: var(--light-background-color);
+        }
         a {
             color: var(--light-font-color);
         }
-        .nav-item:hover {
-            background-color: var(--light-hover-color);  
+        .nav-item {
+            background-color: var(--light-background-color);
         }
-        .nav-display {
-            color: black;
+        footer {
+            background-color: var(--light-background-color);
         }
         
     }

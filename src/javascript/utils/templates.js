@@ -10,7 +10,7 @@ export async function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-    const pagePersistent = await import("../components/page-persistent");
+    const pagePersistent = await import("../components/header-footer");
     const navbar = await import("../components/navBar");
 
     const mainElement = document.querySelector("main");
