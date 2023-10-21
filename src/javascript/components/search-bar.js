@@ -1,6 +1,8 @@
 export default class SearchBar {
-
-    constructor() {
+    constructor(getDataCallback, initialSearch, updateDataCallback) {
+        this.getDataCallback = getDataCallback;
+        this.searchReturn = initialSearch;
+        this.updateDataCallback = updateDataCallback;
         this.setup();
     }
 
@@ -9,7 +11,7 @@ export default class SearchBar {
     }
 
     setup() {
-        this.positionElement = document.querySelector("h1");
+        this.positionElement = document.querySelector('h1');
         this.createElements();
     }
 
@@ -18,40 +20,34 @@ export default class SearchBar {
         this.searchBarHolder.classList.add('search-bar');
         this.positionElement.after(this.searchBarHolder);
 
-        this.textCategory = document.createElement("div");
-        this.textCategory.classList.add("search-bar-categories");
-        // add different categories (function to find categories?)
-
         this.textField = document.createElement('input');
         this.textField.placeholder = 'Search';
         this.textField.classList.add('search-bar-input');
         this.textField.type = 'search';
 
-        this.searchButton = document.createElement("button");
-        this.searchButton.classList.add("search-bar-button");
+        this.searchButton = document.createElement('button');
+        this.searchButton.textContent = 'Find';
+        this.searchButton.classList.add('search-bar-button');
 
         this.addListeners();
     }
 
     renderSearchBar() {
-        this.searchBarHolder.append(this.textCategory);
         this.searchBarHolder.append(this.textField);
         this.searchBarHolder.append(this.searchButton);
     }
 
     addListeners() {
-        this.textField.oninput = () => {
-            // update search variable holder
-        }
-
-        this.searchButton.onclick = () => {
-            this.dataListFilter();
-        }
+        this.searchButton.onclick = async () => {
+            this.searchReturn = await this.getDataCallback(
+                'US',
+                this.textField.value
+            );
+            this.updateDataCallback(this.searchReturn);
+        };
     }
 
-    dataListFilter() {
-       // send search to api
+    getSearchReturn() {
+        return this.searchReturn;
     }
-
-
 }
