@@ -7,50 +7,12 @@
     --dark-font-color: #f1f1f1;
     --dark-hover-color: #2e2e2e;
 
-    --font-style: "Roboto", sans-serif;
-    
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: var(--light-background-color);
-        color: var(--light-font-color);
-    }
-    header {
-        background-color: var(--light-background-color);
-    }
-    a {
-        color: var(--light-font-color);
-    }
-    .nav-item {
-        background-color: var(--light-background-color);
-    }
-    footer {
-        background-color: var(--light-background-color);
-    }
-    
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--dark-background-color);
-        color: var(--dark-font-color);
-    }
-    header {
-        background-color: var(--dark-background-color);
-    }
-    a {
-        color: var(--dark-font-color);
-    }
-    .nav-item {
-        background-color: var(--dark-background-color);
-    }
-    footer {
-        background-color: var(--dark-background-color);
-    }
+    --font-style: 'Roboto', sans-serif;
 }
 
 body {
+    background-color: var(--light-background-color);
+    color: var(--light-font-color);
     font-family: var(--font-style);
     margin: 0;
     padding: 0;
@@ -58,6 +20,7 @@ body {
 
 a {
     text-decoration: none;
+    color: var(--light-font-color);
 }
 
 header {
@@ -65,19 +28,19 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1em;
+    background-color: var(--light-background-color);
 }
 
 .nav-link-container {
     list-style-type: none;
     display: block;
-    position:absolute;
+    position: absolute;
     right: 0;
     top: 1em;
     width: 100%;
 }
 
 .nav-link {
-    
     /* contain: layout; */
     display: inline-block;
 }
@@ -85,9 +48,10 @@ header {
 .nav-item {
     width: 100%;
     text-align: center;
+    background-color: var(--light-background-color);
 }
 
-.nav-display { 
+.nav-display {
     cursor: pointer;
 }
 
@@ -99,5 +63,6 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: .2em 1em .2em 1em;
+    padding: 0.2em 1em 0.2em 1em;
+    background-color: var(--light-background-color);
 }

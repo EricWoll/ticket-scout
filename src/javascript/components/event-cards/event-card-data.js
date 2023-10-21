@@ -1,0 +1,5 @@
+
+
+export function eventCard() {
+    return ``
+}

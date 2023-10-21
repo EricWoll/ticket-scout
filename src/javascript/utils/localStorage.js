@@ -8,5 +8,8 @@ export function setLocalStorage(key, data) {
 
 export function setArrLocalStorage(key, data) {
     const localData = getLocalStorage(key);
-    localStorage.setItem(key, JSON.stringify(Array.isArray(localData) ? [... localData, data] : [data]));
+    localStorage.setItem(
+        key,
+        JSON.stringify(Array.isArray(localData) ? [...localData, data] : [data])
+    );
 }

@@ -1,23 +1,2 @@
 @media (min-width: 600px) {
-    @media (prefers-color-scheme: dark) {
-        body {
-            background-color: var(--light-background-color);
-            color: var(--light-font-color);
-        }
-        header {
-            background-color: var(--light-background-color);
-        }
-        a {
-            color: var(--light-font-color);
-        }
-        .nav-item {
-            background-color: var(--light-background-color);
-        }
-        footer {
-            background-color: var(--light-background-color);
-        }
-        
-    }
-
-
 }
