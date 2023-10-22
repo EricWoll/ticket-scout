@@ -2,11 +2,16 @@ import { renderWithLiteral } from '../../utils/templates';
 
 const eventCardTemplate = (card) => {
     const date = new Date(card.dates.start.dateTime);
-    return `<div class="card">
-        <h1 class="card-name">${card.name}</h1>
+    return `<div class="card" data-saved=false>
+        <h2 class="card-name">${card.name}</h2>
         <img class="card-img" src=${card.images[1].url} />
         <a class="card-link" target=_blank" href=${card.url}>Visit Page</a>
-        <p class="card-date">${date.getFullYear()}</p>
+        <p class="card-date">${date.toLocaleString('en-us', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+        })}</p>
+        <button onclick="${() => {}}">Save</button>
     </div>`;
 };
 

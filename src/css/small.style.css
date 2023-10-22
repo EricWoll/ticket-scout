@@ -14,7 +14,7 @@
 * {
     margin: 0;
     padding: 0;
-    font: inherit;
+    /* font: inherit; */
 }
 
 img,
@@ -45,6 +45,10 @@ header {
 a {
     text-decoration: none;
     color: var(--light-font-color);
+}
+
+.title {
+    user-select: none;
 }
 
 .nav-link-container {

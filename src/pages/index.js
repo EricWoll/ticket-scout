@@ -16,14 +16,7 @@ async function load() {
     const footerPositionElement = document.querySelector('footer');
     const events = new EventCardList(initialSearch, footerPositionElement);
 
-    const searchbar = new SearchBar(
-        api.getData,
-        initialSearch,
-        events.staticRender
-    );
-
     events.init();
-    searchbar.init();
 }
 
 load();
