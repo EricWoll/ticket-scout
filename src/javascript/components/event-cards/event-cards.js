@@ -35,6 +35,7 @@ export default class EventCardList {
     staticRender(dataSource) {
         const cardContainer = document.querySelector('.card-container');
         try {
+            cardContainer.innerHTML = '';
             dataSource._embedded.events.forEach((item) => {
                 renderWithLiteral(eventCardTemplate(item), cardContainer);
             });
