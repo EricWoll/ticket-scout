@@ -19,7 +19,6 @@ export default class ExternalServices {
                 `apikey=${apiKey}`
         );
         const data = await convertToJson(response);
-        // console.log(data);
         return data;
     }
 }
