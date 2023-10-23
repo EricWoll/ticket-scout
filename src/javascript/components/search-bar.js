@@ -6,7 +6,8 @@ export default class SearchBar {
         this.setup();
     }
 
-    init() {
+    init(updatePageTurnerCallBack) {
+        this.updatePageTurner = updatePageTurnerCallBack;
         this.renderSearchBar();
     }
 
@@ -37,17 +38,24 @@ export default class SearchBar {
         this.searchBarHolder.append(this.searchButton);
     }
 
+    updateSearchReturn(newData) {
+        this.searchReturn = newData;
+    }
+
     addListeners() {
         this.searchButton.onclick = async () => {
             this.searchReturn = await this.getDataCallback(
                 'US',
                 this.textField.value
             );
+
             this.updateDataCallback(this.searchReturn);
+
+            this.updatePageTurner(this);
         };
     }
 
-    getSearchReturn() {
-        return this.searchReturn;
+    getSearchTerm() {
+        return this.textField.value;
     }
 }

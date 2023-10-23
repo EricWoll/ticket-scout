@@ -11,12 +11,11 @@ const eventCardTemplate = (card) => {
             day: 'numeric',
             year: 'numeric',
         })}</p>
-        <button onclick="${() => {}}">Save</button>
     </div>`;
 };
 
 const renderFail = () => {
-    return `<h2 class="render-fail">No Search Results</h2>`;
+    return `<h2 class="render-fail">That Event Does not Exist!</h2>`;
 };
 
 export default class EventCardList {
@@ -35,9 +34,14 @@ export default class EventCardList {
     staticRender(dataSource) {
         const cardContainer = document.querySelector('.card-container');
         try {
-            dataSource._embedded.events.forEach((item) => {
-                renderWithLiteral(eventCardTemplate(item), cardContainer);
-            });
+            cardContainer.innerHTML = '';
+
+            // Checks for empty object
+            Object.keys(dataSource).length != 0
+                ? dataSource._embedded.events.forEach((item) => {
+                      renderWithLiteral(eventCardTemplate(item), cardContainer);
+                  })
+                : (cardContainer.innerHTML = `<h2 class="no-search-start">Start your Search!</h2>`);
         } catch (e) {
             cardContainer.innerHTML = renderFail();
         }
