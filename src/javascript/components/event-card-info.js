@@ -1,7 +1,8 @@
 export const eventCardTemplate = (card, savedCards) => {
-    const savedCard = savedCards.some((item) => {
+    const newSavedCards = savedCards.filter((item) => {
         return item.id == card.id && item.isSaved == true;
     });
+
     const date = new Date(card.dates.start.dateTime);
 
     return `<div class="card" id='${card.id}' data-saved=false>
@@ -18,7 +19,7 @@ export const eventCardTemplate = (card, savedCards) => {
                     card.url
                 }>Visit Page</a>
                 ${
-                    !savedCard
+                    !newSavedCards.length > 0
                         ? `<button class='card-save-button'>Save</button>`
                         : `<button class='card-save-button'>Unsave</button>`
                 }
