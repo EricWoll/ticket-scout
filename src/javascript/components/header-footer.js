@@ -3,7 +3,7 @@ export const header = () =>
         <a class="title" href="/">Ticket Scout</a>
         <div class="nav-bar">
         <span class="nav-display">⇓</span>
-        <ul class="nav-link-container hidden"></ul>
+        <ul class="nav-link-container"></ul>
         </div>
     </header>`;
 

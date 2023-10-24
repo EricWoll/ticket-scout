@@ -24,6 +24,7 @@ function createButtons(SearchObject, parentElement) {
         updatePageCallback(data);
         updatePageNum(data.page.number);
         pageNum.textContent = `${page + 1}`;
+        window.scrollTo(0, 0);
     };
 
     const pageNum = document.createElement('p');
@@ -39,6 +40,7 @@ function createButtons(SearchObject, parentElement) {
         updatePageCallback(data);
         updatePageNum(data.page.number);
         pageNum.textContent = `${page + 1}`;
+        window.scrollTo(0, 0);
     };
 
     parentElement.append(firstButton, pageNum, secondButton);

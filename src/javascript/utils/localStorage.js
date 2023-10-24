@@ -18,7 +18,6 @@ export function toggleLocalStorage(key, data) {
     });
 
     const newItems = items.filter((item) => {
-        console.log(!item.id.includes(data.id));
         return !item.id.includes(data.id);
     });
 

@@ -20,10 +20,22 @@ export async function loadHeaderFooter() {
     const pagePersistent = await import('../components/header-footer');
     const navbar = await import('../components/navBar');
 
-    const mainElement = document.querySelector('main');
+    const mainElement = document.querySelector('body');
 
     renderWithLiteral(pagePersistent.header(), mainElement);
     renderWithLiteral(pagePersistent.footer(), mainElement, 'beforeend');
+
+    const navContainer = document.querySelector('.nav-link-container');
+
+    if (window.innerWidth < 600) {
+        navContainer.classList.add('hidden');
+    }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 600) {
+            navContainer.classList.remove('hidden');
+        }
+    });
 
     navbar.NavBar();
 }
