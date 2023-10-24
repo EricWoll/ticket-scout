@@ -2,6 +2,11 @@
     header {
         padding: 0.5em;
     }
+
+    .title {
+        font-size: 2em;
+    }
+
     .nav-link-container {
         position: relative;
         top: 0;
@@ -12,6 +17,7 @@
         gap: 1em;
         margin-right: 2.5em;
     }
+
     .nav-display {
         display: none;
     }
