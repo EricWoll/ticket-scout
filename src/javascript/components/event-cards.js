@@ -27,7 +27,10 @@ export default class EventCardList {
             Object.keys(dataSource).length != 0
                 ? dataSource._embedded.events.forEach((item) => {
                       renderWithLiteral(
-                          eventCardTemplate(item, savedEvents),
+                          eventCardTemplate(
+                              item,
+                              Array.isArray(savedEvents) ? savedEvents : []
+                          ),
                           cardContainer
                       );
 
@@ -41,6 +44,7 @@ export default class EventCardList {
                   })
                 : (cardContainer.innerHTML = `<h2 class="no-search-start">Start your Search!</h2>`);
         } catch (e) {
+            console.log(e);
             cardContainer.innerHTML = renderFail();
         }
     }

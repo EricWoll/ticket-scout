@@ -16,6 +16,7 @@
         display: flex;
         gap: 1em;
         margin-right: 2.5em;
+        align-items: center;
     }
 
     .nav-display {
@@ -41,11 +42,8 @@
         width: 5em;
     }
 
-    .no-search-start {
-        margin-top: 1em;
-        font-size: 2.5em;
-    }
-
+    .no-search-start,
+    .no-saved-events,
     .render-fail {
         margin-top: 1em;
         font-size: 2.5em;
