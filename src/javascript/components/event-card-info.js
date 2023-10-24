@@ -5,15 +5,24 @@ export const eventCardTemplate = (card, savedCards) => {
 
     const date = new Date(card.dates.start.dateTime);
 
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
     return `<div class="card" id='${card.id}' data-saved=false>
         <img class="card-img" src=${card.images[1].url} />
         <section class="card-info">
             <h2 class="card-name">${card.name}</h2>
-            <p class="card-date">${date.toLocaleString('en-us', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric',
-            })}</p>
+            <section class="card-date-time">
+                <p class="card-date">${date.toLocaleString('en-us', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                })}</p>
+                <p class="card-time">${date.toLocaleString('en-us', {
+                    timeZone: timeZone,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                })}</p>
+            </section>
             <section class="card-links">
                 <a class="card-link" target="_blank" href=${
                     card.url
