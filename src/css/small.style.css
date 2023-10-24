@@ -190,6 +190,9 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-style: italic;
+    font-weight: 100;
+    user-select: none;
 }
 
 .card-date {
