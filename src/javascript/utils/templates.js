@@ -34,6 +34,8 @@ export async function loadHeaderFooter() {
     window.addEventListener('resize', () => {
         if (window.innerWidth >= 600) {
             navContainer.classList.remove('hidden');
+        } else {
+            navContainer.classList.add('hidden');
         }
     });
 
