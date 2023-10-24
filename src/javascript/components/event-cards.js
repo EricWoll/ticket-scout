@@ -27,7 +27,10 @@ export default class EventCardList {
             Object.keys(dataSource).length != 0
                 ? dataSource._embedded.events.forEach((item) => {
                       renderWithLiteral(
-                          eventCardTemplate(item, savedEvents),
+                          eventCardTemplate(
+                              item,
+                              savedEvents.length >= 0 ? savedEvents : []
+                          ),
                           cardContainer
                       );
 
