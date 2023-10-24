@@ -41,6 +41,7 @@ export default class EventCardList {
                   })
                 : (cardContainer.innerHTML = `<h2 class="no-search-start">Start your Search!</h2>`);
         } catch (e) {
+            console.log(e);
             cardContainer.innerHTML = renderFail();
         }
     }
