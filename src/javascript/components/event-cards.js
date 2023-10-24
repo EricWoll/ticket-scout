@@ -29,7 +29,7 @@ export default class EventCardList {
                       renderWithLiteral(
                           eventCardTemplate(
                               item,
-                              savedEvents.length >= 0 ? savedEvents : []
+                              Array.isArray(savedEvents) ? savedEvents : []
                           ),
                           cardContainer
                       );
