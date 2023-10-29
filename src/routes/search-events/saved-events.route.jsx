@@ -1,5 +1,15 @@
+import CardsContainer from '../../components/cards-container/cards-container.component';
+import PageTurner from '../../components/page-turner/page-turner.component';
+import SearchBar from '../../components/search-bar/search-bar.component';
+
 function SearchEvents() {
-    return <h1>Search Events</h1>;
+    return (
+        <>
+            <SearchBar />
+            <CardsContainer />
+            <PageTurner />
+        </>
+    );
 }
 
 export default SearchEvents;

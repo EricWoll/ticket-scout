@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card_div = styled.div`
     background-color: #f1f1f1;
-    transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
     margin: 0.5em auto;
     max-width: 20em;
     padding: 0.5em;
@@ -10,7 +10,7 @@ export const Card_div = styled.div`
     overflow: hidden;
 
     &:hover {
-        background-color: var(--hover-color);
+        background-color: #c7c7c7;
     }
 `;
 
@@ -18,6 +18,11 @@ export const CardImage_img = styled.img`
     width: 20em;
     aspect-ratio: 16/9;
     border-radius: 0.5em;
+    user-select: none;
+`;
+
+export const CardTitle_h2 = styled.h2`
+    margin-top: 0.2em;
 `;
 
 export const CardDateTime_sec = styled.section`
@@ -59,13 +64,14 @@ export const CardLink_a = styled.a`
     border-radius: 0.5em;
     user-select: none;
     border: none;
+    text-decoration: none;
+    color: black;
 
     &:active {
         background-color: #b9b9b9;
     }
 `;
 
-// Will be changed to dynamic icon on top of card image
 export const CardLink_button = styled.button`
     background-color: #e0e0e0;
     padding: 0.35em;

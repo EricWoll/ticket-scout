@@ -1,5 +1,12 @@
+import SearchBar from '../../components/search-bar/search-bar.component';
+
 function SavedEvents() {
-    return <h1>Saved Events</h1>;
+    return (
+        <>
+            <SearchBar />
+            <h1>Saved Events</h1>
+        </>
+    );
 }
 
 export default SavedEvents;

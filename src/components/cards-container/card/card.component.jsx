@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import { SavedEventsContext } from '../../../contexts/saved-events.context';
+
 import {
     Card_div,
     CardImage_img,
+    CardTitle_h2,
     CardDateTime_sec,
     CardDate_p,
     CardTime_p,
@@ -9,18 +13,21 @@ import {
     CardLink_button,
 } from './card.styles';
 
-function Card({ cardItem, savedCards }) {
-    const newSavedCards = savedCards.filter((item) => {
-        return item.id == cardItem.id && item.isSaved == true;
-    });
+function Card({ cardItem }) {
+    const { addSavedEvent, removeSavedEvent, eventIsSaved } =
+        useContext(SavedEventsContext);
 
     const date = new Date(cardItem.dates.start.dateTime);
-
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    const isSaved = eventIsSaved(cardItem);
+    const addEventHandler = () => addSavedEvent(cardItem);
+    const removeEventHandler = () => removeSavedEvent(cardItem);
 
     return (
         <Card_div>
             <CardImage_img src={cardItem.images[1].url} />
+            <CardTitle_h2>{cardItem.name}</CardTitle_h2>
             <CardDateTime_sec>
                 <CardDate_p>
                     {date.toLocaleString('en-us', {
@@ -41,10 +48,14 @@ function Card({ cardItem, savedCards }) {
                 <CardLink_a target="_blank" href={cardItem.url}>
                     Visit Page
                 </CardLink_a>
-                {!newSavedCards.length > 0 ? (
-                    <CardLink_button>Save</CardLink_button>
+                {isSaved ? (
+                    <CardLink_button onClick={removeEventHandler}>
+                        Unsave
+                    </CardLink_button>
                 ) : (
-                    <CardLink_button>Unsave</CardLink_button>
+                    <CardLink_button onClick={addEventHandler}>
+                        Save
+                    </CardLink_button>
                 )}
             </CardLinks_sec>
         </Card_div>
