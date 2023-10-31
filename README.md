@@ -1,2 +1,4 @@
 # ticket-scout
 A website that allows users to easily search through Ticketmaster's events
+
+Website link: https://ticket-scout.netlify.app/ 
