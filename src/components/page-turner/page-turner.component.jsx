@@ -1,9 +1,9 @@
-function PageTurner() {
+function PageTurner({ currentPage, nextPage, prevPage }) {
     return (
         <div className="page-turner-container">
-            <button>Prev</button>
-            <p>Number</p>
-            <button>Next</button>
+            <button onClick={prevPage}>Prev</button>
+            <p>{currentPage + 1}</p>
+            <button onClick={nextPage}>Next</button>
         </div>
     );
 }

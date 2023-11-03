@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { SavedEventsContext } from '../../../contexts/saved-events.context';
 
 import {
@@ -9,7 +10,7 @@ import {
     CardDate_p,
     CardTime_p,
     CardLinks_sec,
-    CardLink_a,
+    CardLink_link,
     CardLink_button,
 } from './card.styles';
 
@@ -45,9 +46,9 @@ function Card({ cardItem }) {
                 </CardTime_p>
             </CardDateTime_sec>
             <CardLinks_sec>
-                <CardLink_a target="_blank" href={cardItem.url}>
+                <CardLink_link to={cardItem.url} target="_blank">
                     Visit Page
-                </CardLink_a>
+                </CardLink_link>
                 {isSaved ? (
                     <CardLink_button onClick={removeEventHandler}>
                         Unsave

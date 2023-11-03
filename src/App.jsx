@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Navigation from './routes/navigation/navigation.route';
 import Home from './routes/home/home.route';
-import SearchEvents from './routes/search-events/saved-events.route';
+import SearchEvents from './routes/search-events/search-events.route';
 import SavedEvents from './routes/saved-events/saved-events.route';
 
 function App() {

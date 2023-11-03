@@ -1,10 +1,13 @@
-import SearchBar from '../../components/search-bar/search-bar.component';
+import { useContext } from 'react';
+import { SavedEventsContext } from '../../contexts/saved-events.context';
+
+import CardsContainer from '../../components/cards-container/cards-container.component';
 
 function SavedEvents() {
+    const { savedEvents } = useContext(SavedEventsContext);
     return (
         <>
-            <SearchBar />
-            <h1>Saved Events</h1>
+            <CardsContainer cards={savedEvents} />
         </>
     );
 }

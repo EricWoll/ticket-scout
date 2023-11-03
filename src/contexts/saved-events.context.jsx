@@ -10,7 +10,7 @@ export const SavedEventsContext = createContext({
 
 export const SavedEventsProvider = ({ children }) => {
     const [savedEvents, setSavedEvents] = useState([]);
-    // Stops LocalStorage from Being Overwritten in 2nd useEffect
+    // Stops LocalStorage from Being Overwritten on load in 2nd useEffect
     const [shouldUpdate, setShouldUpdate] = useState(false);
 
     useEffect(() => {
