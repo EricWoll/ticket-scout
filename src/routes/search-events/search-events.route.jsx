@@ -5,9 +5,13 @@ import CardsContainer from '../../components/cards-container/cards-container.com
 import PageTurner from '../../components/page-turner/page-turner.component';
 import SearchBar from '../../components/search-bar/search-bar.component';
 
+import { NoEvents } from './search-events.styles';
+
 function SearchEvents() {
     const { currentEvents, searchEvents, currentPage, nextPage, prevPage } =
         useContext(RetrivedEventsContext);
+
+    if (currentEvents == null) return;
 
     const searchCheck = () => {
         if (currentEvents.hasOwnProperty('_embedded')) {
@@ -16,20 +20,23 @@ function SearchEvents() {
         return false;
     };
 
+    const hasEvents = searchCheck();
+
     return (
         <>
             <SearchBar searchEvents={searchEvents} />
-            {searchCheck() ? (
+            {hasEvents ? (
                 <CardsContainer cards={currentEvents} />
             ) : (
-                <h2>No event exists</h2>
+                <NoEvents>No event exists</NoEvents>
             )}
-
-            <PageTurner
-                currentPage={currentPage}
-                nextPage={nextPage}
-                prevPage={prevPage}
-            />
+            {hasEvents ? (
+                <PageTurner
+                    currentPage={currentPage}
+                    nextPage={nextPage}
+                    prevPage={prevPage}
+                />
+            ) : null}
         </>
     );
 }

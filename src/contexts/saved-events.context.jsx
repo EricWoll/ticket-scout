@@ -56,10 +56,12 @@ export const SavedEventsProvider = ({ children }) => {
     );
 };
 
+// Move to Utils file
 export function getLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key));
 }
 
+// Move to Utils file
 function setArrLocalStorage(key, data, clear = false) {
     const localData = getLocalStorage(key);
     if (clear) {

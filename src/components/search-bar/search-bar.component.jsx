@@ -1,5 +1,11 @@
 import { useState } from 'react';
 
+import {
+    SearchBarContainer,
+    SearchBarInput,
+    SearchBarButton,
+} from './search-bar.styles';
+
 function SearchBar({ searchEvents }) {
     const [inputValue, setInputValue] = useState('');
 
@@ -13,10 +19,15 @@ function SearchBar({ searchEvents }) {
         searchEvents(inputValue);
     };
     return (
-        <form className="search-bar-container">
-            <input id="search-bar" type="search" onInput={onInputHandle} />
-            <button onClick={onClickHandle}>Click</button>
-        </form>
+        <SearchBarContainer>
+            <SearchBarInput
+                name="search"
+                type="search"
+                placeholder="Search"
+                onInput={onInputHandle}
+            />
+            <SearchBarButton onClick={onClickHandle}>Search</SearchBarButton>
+        </SearchBarContainer>
     );
 }
 
