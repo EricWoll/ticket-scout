@@ -29,7 +29,7 @@ function Navigation() {
                 <Logo to="/">Ticket Scout</Logo>
                 <NavigationHamburger
                     onClick={menuOnClickHandler}
-                    src="../../assets/hamburger-menu.png"
+                    src="./assets/hamburger-menu.png"
                 />
             </Header>
             {navIsOpen ? (
