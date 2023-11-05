@@ -1,18 +1,11 @@
-import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-    root: 'src/pages/',
+    root: 'src/',
     build: {
-        outDir: '../../dist',
-        rollupOptions: {
-          input: {
-            'main': resolve(__dirname, 'src/pages/index.html'),
-            'search-events': resolve(__dirname, 'src/pages/search-events/index.html'),
-            'saved-events': resolve(__dirname, 'src/pages/saved-events/index.html'),
-          },
-        },
-      },
-})
-
-
+        outDir: '../dist',
+    },
+    plugins: [react()],
+});
