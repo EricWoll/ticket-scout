@@ -8,8 +8,14 @@ import SearchBar from '../../components/search-bar/search-bar.component';
 import { NoEvents } from './search-events.styles';
 
 function SearchEvents() {
-    const { currentEvents, searchEvents, currentPage, nextPage, prevPage } =
-        useContext(RetrivedEventsContext);
+    const {
+        currentEvents,
+        searchEvents,
+        currentPage,
+        nextPage,
+        prevPage,
+        searchTerm,
+    } = useContext(RetrivedEventsContext);
 
     if (currentEvents == null) return;
 
@@ -28,7 +34,7 @@ function SearchEvents() {
             {hasEvents ? (
                 <CardsContainer cards={currentEvents} />
             ) : (
-                <NoEvents>No event exists</NoEvents>
+                <NoEvents>No event exists for '{searchTerm}'</NoEvents>
             )}
             {hasEvents ? (
                 <PageTurner
