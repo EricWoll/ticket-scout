@@ -35,9 +35,9 @@ export const NavigationHamburger = styled.img`
 export const NavLinksContainer = styled.div`
     position: absolute;
     width: 15em;
-    height: 90vh;
-    top: 9vh;
-    right: 1vw;
+    height: 35em;
+    top: 5em;
+    right: 0.5em;
     padding: 0.5em;
     display: flex;
     flex-direction: column;

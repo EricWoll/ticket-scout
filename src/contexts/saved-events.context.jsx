@@ -1,8 +1,12 @@
 import { createContext, useEffect, useState } from 'react';
 
-// Value to access
+import {
+    getLocalStorage,
+    setArrLocalStorage,
+} from '../utils/LocalStorage.utils';
+
 export const SavedEventsContext = createContext({
-    savedEvents: null,
+    savedEvents: [],
     eventIsSaved: () => {},
     addSavedEvent: () => {},
     removeSavedEvent: () => {},
@@ -29,7 +33,9 @@ export const SavedEventsProvider = ({ children }) => {
     }, [savedEvents]);
 
     const addSavedEvent = (eventToAdd) => {
-        setSavedEvents([...savedEvents, eventToAdd]);
+        Array.isArray(savedEvents)
+            ? setSavedEvents([...savedEvents, eventToAdd])
+            : setSavedEvents([eventToAdd]);
     };
 
     const removeSavedEvent = (eventToRemove) => {
@@ -39,7 +45,9 @@ export const SavedEventsProvider = ({ children }) => {
     };
 
     const eventIsSaved = (event) => {
-        return savedEvents.find((item) => item.id == event.id);
+        return savedEvents
+            ? savedEvents.find((item) => item.id == event.id)
+            : false;
     };
 
     const value = {
@@ -55,23 +63,3 @@ export const SavedEventsProvider = ({ children }) => {
         </SavedEventsContext.Provider>
     );
 };
-
-// Move to Utils file
-export function getLocalStorage(key) {
-    return JSON.parse(localStorage.getItem(key));
-}
-
-// Move to Utils file
-function setArrLocalStorage(key, data, clear = false) {
-    const localData = getLocalStorage(key);
-    if (clear) {
-        localStorage.setItem(key, JSON.stringify(data));
-    } else {
-        localStorage.setItem(
-            key,
-            JSON.stringify(
-                Array.isArray(localData) ? [...localData, data] : [data]
-            )
-        );
-    }
-}

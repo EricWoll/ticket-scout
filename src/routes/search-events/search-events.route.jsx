@@ -30,7 +30,7 @@ function SearchEvents() {
 
     return (
         <>
-            <SearchBar searchEvents={searchEvents} />
+            <SearchBar searchEvents={searchEvents} searchTerm={searchTerm} />
             {hasEvents ? (
                 <CardsContainer cards={currentEvents} />
             ) : (
