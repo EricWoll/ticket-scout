@@ -8,6 +8,7 @@ import { NoSavedEvents } from './saved-events.styles';
 function SavedEvents() {
     const { savedEvents } = useContext(SavedEventsContext);
     const eventsCheck = () => {
+        if (!Array.isArray(savedEvents)) return false;
         return savedEvents.length == 0;
     };
     return (
