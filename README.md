@@ -22,4 +22,3 @@ And of course, there will be bug fixes!
 
 -   React
 -   React-Router
--   Styled-Components
