@@ -5,8 +5,6 @@ import CardsContainer from '../../components/cards-container/cards-container.com
 import PageTurner from '../../components/page-turner/page-turner.component';
 import SearchBar from '../../components/search-bar/search-bar.component';
 
-import { NoEvents } from './search-events.styles';
-
 function SearchEvents() {
     const {
         currentEvents,
@@ -34,7 +32,9 @@ function SearchEvents() {
             {hasEvents ? (
                 <CardsContainer cards={currentEvents} />
             ) : (
-                <NoEvents>No event exists for '{searchTerm}'</NoEvents>
+                <h1 className="no-events-flag">
+                    No event exists for '{searchTerm}'
+                </h1>
             )}
             {hasEvents ? (
                 <PageTurner

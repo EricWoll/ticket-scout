@@ -3,8 +3,6 @@ import { SavedEventsContext } from '../../contexts/saved-events.context';
 
 import CardsContainer from '../../components/cards-container/cards-container.component';
 
-import { NoSavedEvents } from './saved-events.styles';
-
 function SavedEvents() {
     const { savedEvents } = useContext(SavedEventsContext);
     const eventsCheck = () => {
@@ -16,7 +14,7 @@ function SavedEvents() {
             {eventsCheck() ? (
                 <CardsContainer cards={savedEvents} />
             ) : (
-                <NoSavedEvents>No Saved Events</NoSavedEvents>
+                <h1 className="no-events-flag">No Saved Events</h1>
             )}
         </>
     );

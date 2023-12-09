@@ -1,16 +1,14 @@
-import {
-    PageTurnerContainer,
-    PageTurnerButton,
-    PageNumber,
-} from './page-turner.styles';
-
 function PageTurner({ currentPage, nextPage, prevPage }) {
     return (
-        <PageTurnerContainer>
-            <PageTurnerButton onClick={prevPage}>Prev</PageTurnerButton>
-            <PageNumber>{currentPage + 1}</PageNumber>
-            <PageTurnerButton onClick={nextPage}>Next</PageTurnerButton>
-        </PageTurnerContainer>
+        <div className="page-turner-container">
+            <button className="page-turner-prev" onClick={prevPage}>
+                Prev
+            </button>
+            <p className="page-turner-number">{currentPage + 1}</p>
+            <button className="page-turner-next" onClick={nextPage}>
+                Next
+            </button>
+        </div>
     );
 }
 

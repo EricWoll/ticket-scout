@@ -1,11 +1,5 @@
 import { useState } from 'react';
 
-import {
-    SearchBarContainer,
-    SearchBarInput,
-    SearchBarButton,
-} from './search-bar.styles';
-
 function SearchBar({ searchEvents, searchTerm }) {
     const [inputValue, setInputValue] = useState(searchTerm);
 
@@ -19,16 +13,19 @@ function SearchBar({ searchEvents, searchTerm }) {
         searchEvents(inputValue);
     };
     return (
-        <SearchBarContainer>
-            <SearchBarInput
+        <div className="search-bar-contaienr">
+            <input
+                className="search-bar-input"
                 name="search"
                 type="search"
                 placeholder="Search"
                 value={inputValue}
                 onInput={onInputHandle}
             />
-            <SearchBarButton onClick={onClickHandle}>Search</SearchBarButton>
-        </SearchBarContainer>
+            <button className="search-bar-button" onClick={onClickHandle}>
+                Search
+            </button>
+        </div>
     );
 }
 

@@ -2,18 +2,6 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { SavedEventsContext } from '../../../contexts/saved-events.context';
 
-import {
-    Card_div,
-    CardImage_img,
-    CardTitle_h2,
-    CardDateTime_sec,
-    CardDate_p,
-    CardTime_p,
-    CardLinks_sec,
-    CardLink_link,
-    CardLink_button,
-} from './card.styles';
-
 function Card({ cardItem }) {
     const { addSavedEvent, removeSavedEvent, eventIsSaved } =
         useContext(SavedEventsContext);
@@ -26,40 +14,50 @@ function Card({ cardItem }) {
     const removeEventHandler = () => removeSavedEvent(cardItem);
 
     return (
-        <Card_div>
-            <CardImage_img src={cardItem.images[1].url} />
-            <CardTitle_h2>{cardItem.name}</CardTitle_h2>
-            <CardDateTime_sec>
-                <CardDate_p>
+        <div className="event-card">
+            <img className="event-card-img" src={cardItem.images[1].url} />
+            <h2 className="card-card-title">{cardItem.name}</h2>
+            <section className="event-card-info">
+                <p className="event-card-date">
                     {date.toLocaleString('en-us', {
                         month: 'short',
                         day: 'numeric',
                         year: 'numeric',
                     })}
-                </CardDate_p>
-                <CardTime_p>
+                </p>
+                <p className="event-card-time">
                     {date.toLocaleString('en-us', {
                         timeZone: timeZone,
                         hour: '2-digit',
                         minute: '2-digit',
                     })}
-                </CardTime_p>
-            </CardDateTime_sec>
-            <CardLinks_sec>
-                <CardLink_link to={cardItem.url} target="_blank">
+                </p>
+            </section>
+            <section className="event-card-links">
+                <Link
+                    className="event-card-link"
+                    to={cardItem.url}
+                    target="_blank"
+                >
                     Visit Page
-                </CardLink_link>
+                </Link>
                 {isSaved ? (
-                    <CardLink_button onClick={removeEventHandler}>
+                    <button
+                        className="event-card-unsave"
+                        onClick={removeEventHandler}
+                    >
                         Unsave
-                    </CardLink_button>
+                    </button>
                 ) : (
-                    <CardLink_button onClick={addEventHandler}>
+                    <button
+                        className="event-card-save"
+                        onClick={addEventHandler}
+                    >
                         Save
-                    </CardLink_button>
+                    </button>
                 )}
-            </CardLinks_sec>
-        </Card_div>
+            </section>
+        </div>
     );
 }
 
