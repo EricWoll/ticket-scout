@@ -23,30 +23,29 @@ function Navigation() {
                     onClick={menuOnClickHandler}
                     src="./assets/hamburger-menu.png"
                 />
+                {navIsOpen ? (
+                    <nav className="nav-container">
+                        <Link
+                            className="nav-link"
+                            onClick={linkOnClickHandler}
+                            to="/"
+                        >
+                            Search Events
+                        </Link>
+                        <Link
+                            className="nav-link"
+                            onClick={linkOnClickHandler}
+                            to="/saved-events"
+                        >
+                            Saved Events
+                        </Link>
+                    </nav>
+                ) : null}
             </header>
-            {navIsOpen ? (
-                <nav className="nav-container">
-                    <Link
-                        className="nav-link"
-                        onClick={linkOnClickHandler}
-                        to="/"
-                    >
-                        Search Events
-                    </Link>
-                    <Link
-                        className="nav-link"
-                        onClick={linkOnClickHandler}
-                        to="/saved-events"
-                    >
-                        Saved Events
-                    </Link>
-                </nav>
-            ) : null}
-
             <Outlet />
             <footer>
-                <p>©Eric Woll 2023</p>
-                <p>Made with TicketMaster API</p>
+                <p className="footer-contents">©Eric Woll 2023</p>
+                <p className="footer-contents">Made with TicketMaster API</p>
             </footer>
         </main>
     );

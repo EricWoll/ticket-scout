@@ -13,7 +13,7 @@ function SearchBar({ searchEvents, searchTerm }) {
         searchEvents(inputValue);
     };
     return (
-        <div className="search-bar-contaienr">
+        <div className="search-bar-container">
             <input
                 className="search-bar-input"
                 name="search"

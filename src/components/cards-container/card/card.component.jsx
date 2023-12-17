@@ -15,48 +15,49 @@ function Card({ cardItem }) {
 
     return (
         <div className="event-card">
-            <img className="event-card-img" src={cardItem.images[1].url} />
-            <h2 className="card-card-title">{cardItem.name}</h2>
-            <section className="event-card-info">
-                <p className="event-card-date">
-                    {date.toLocaleString('en-us', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                    })}
-                </p>
-                <p className="event-card-time">
-                    {date.toLocaleString('en-us', {
-                        timeZone: timeZone,
-                        hour: '2-digit',
-                        minute: '2-digit',
-                    })}
-                </p>
+            <section className="event-card-content">
+                <section className="event-card-header">
+                    <seciton className="event-title-container">
+                        <h2 className="event-card-title">{cardItem.name}</h2>
+                    </seciton>
+                    {isSaved ? (
+                        <button
+                            className="event-card-button"
+                            onClick={removeEventHandler}
+                        >
+                            Unsave
+                        </button>
+                    ) : (
+                        <button
+                            className="event-card-button"
+                            onClick={addEventHandler}
+                        >
+                            Save
+                        </button>
+                    )}
+                </section>
+                <img className="event-card-img" src={cardItem.images[1].url} />
+
+                <section className="event-card-info">
+                    <p className="event-card-date">
+                        {date.toLocaleString('en-us', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                        })}
+                    </p>
+                    <p className="event-card-time">
+                        {date.toLocaleString('en-us', {
+                            timeZone: timeZone,
+                            hour: '2-digit',
+                            minute: '2-digit',
+                        })}
+                    </p>
+                </section>
             </section>
-            <section className="event-card-links">
-                <Link
-                    className="event-card-link"
-                    to={cardItem.url}
-                    target="_blank"
-                >
-                    Visit Page
-                </Link>
-                {isSaved ? (
-                    <button
-                        className="event-card-unsave"
-                        onClick={removeEventHandler}
-                    >
-                        Unsave
-                    </button>
-                ) : (
-                    <button
-                        className="event-card-save"
-                        onClick={addEventHandler}
-                    >
-                        Save
-                    </button>
-                )}
-            </section>
+            <Link className="event-card-link" to={cardItem.url} target="_blank">
+                Visit Page
+            </Link>
         </div>
     );
 }
