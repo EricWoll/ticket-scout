@@ -33,7 +33,7 @@ function SearchEvents() {
                 <CardsContainer cards={currentEvents} />
             ) : (
                 <h1 className="no-events-flag">
-                    No event exists for '{searchTerm}'
+                    No Events Found For '{searchTerm}'
                 </h1>
             )}
             {hasEvents ? (

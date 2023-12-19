@@ -58,7 +58,7 @@ header {
     width: 100%;
     padding: 0.05em 0em;
     text-decoration: none;
-    border-radius: 0.2em;
+    border-radius: 0.5em;
     text-align: center;
     color: var(--lightShades);
     font-size: 1.5em;
@@ -93,14 +93,10 @@ header {
     padding-left: 0.5em;
     border: none;
     outline: 0.1em solid var(--lightAccent);
-    border-radius: 0.2em 0.1em 0.1em 0.2em;
+    border-radius: 0.5em 0 0 0.5em;
     width: 30em;
     height: 2.5em;
     color: var(--mainColor);
-}
-
-.search-bar-input:focus {
-    outline-width: 0.2em;
 }
 
 .search-bar-input::-webkit-search-cancel-button {
@@ -157,6 +153,8 @@ header {
     padding-bottom: 0.5em;
     max-width: 300px;
     padding: 0.5em;
+    box-shadow: var(--boxShadow) 0px 1px 2px 0px,
+        var(--boxShadow) 0px 1px 3px 1px;
 }
 
 .event-card-img {
@@ -193,7 +191,7 @@ header {
     font-weight: 600;
 }
 
-.event-card:hover .event-card-title {
+.event-card-content:hover .event-card-title {
     overflow: visible;
     animation: card-out 0.25s linear both;
 }
