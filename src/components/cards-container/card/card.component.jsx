@@ -17,23 +17,21 @@ function Card({ cardItem }) {
         <div className="event-card">
             <section className="event-card-content">
                 <section className="event-card-header">
-                    <seciton className="event-title-container">
+                    <section className="event-title-container">
                         <h2 className="event-card-title">{cardItem.name}</h2>
-                    </seciton>
+                    </section>
                     {isSaved ? (
-                        <button
-                            className="event-card-button"
+                        <img
+                            className="event-card-save-icon"
                             onClick={removeEventHandler}
-                        >
-                            Unsave
-                        </button>
+                            src="../../../public/assets/Saved-Icon.png"
+                        />
                     ) : (
-                        <button
-                            className="event-card-button"
+                        <img
+                            className="event-card-save-icon"
                             onClick={addEventHandler}
-                        >
-                            Save
-                        </button>
+                            src="../../../public/assets/Not-Saved-Icon.png"
+                        />
                     )}
                 </section>
                 <img className="event-card-img" src={cardItem.images[1].url} />

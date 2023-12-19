@@ -21,7 +21,7 @@ function Navigation() {
                 <img
                     className="nav-menu-icon"
                     onClick={menuOnClickHandler}
-                    src="./assets/hamburger-menu.png"
+                    src="./assets/Menu-Icon.png"
                 />
                 {navIsOpen ? (
                     <nav className="nav-container">
