@@ -1,15 +1,4 @@
-import { Outlet } from 'react-router-dom';
-
-import {
-    PageContentContainer,
-    Header,
-    Logo,
-    NavLinksContainer,
-    NavigationHamburger,
-    NavLink,
-    Footer,
-    FooterContents,
-} from './navigation.styles';
+import { Link, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 
 function Navigation() {
@@ -24,31 +13,41 @@ function Navigation() {
     };
 
     return (
-        <PageContentContainer>
-            <Header>
-                <Logo to="/">Ticket Scout</Logo>
-                <NavigationHamburger
+        <main className="content-container">
+            <header>
+                <Link className="logo" to="/">
+                    Ticket Scout
+                </Link>
+                <img
+                    className="nav-menu-icon"
                     onClick={menuOnClickHandler}
-                    src="./assets/hamburger-menu.png"
+                    src="./assets/Menu-Icon.png"
                 />
-            </Header>
-            {navIsOpen ? (
-                <NavLinksContainer>
-                    <NavLink onClick={linkOnClickHandler} to="/">
-                        Search Events
-                    </NavLink>
-                    <NavLink onClick={linkOnClickHandler} to="/saved-events">
-                        Saved Events
-                    </NavLink>
-                </NavLinksContainer>
-            ) : null}
-
+                {navIsOpen ? (
+                    <nav className="nav-container">
+                        <Link
+                            className="nav-link"
+                            onClick={linkOnClickHandler}
+                            to="/"
+                        >
+                            Search Events
+                        </Link>
+                        <Link
+                            className="nav-link"
+                            onClick={linkOnClickHandler}
+                            to="/saved-events"
+                        >
+                            Saved Events
+                        </Link>
+                    </nav>
+                ) : null}
+            </header>
             <Outlet />
-            <Footer>
-                <FooterContents>©Eric Woll 2023</FooterContents>
-                <FooterContents>Made with TicketMaster API</FooterContents>
-            </Footer>
-        </PageContentContainer>
+            <footer>
+                <p className="footer-contents">©Eric Woll 2023</p>
+                <p className="footer-contents">Made with TicketMaster API</p>
+            </footer>
+        </main>
     );
 }
 
