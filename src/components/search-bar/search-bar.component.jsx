@@ -22,7 +22,6 @@ function SearchBar({ searchEvents, searchTerm }) {
                 placeholder="Search"
                 value={inputValue}
                 onInput={onInputHandle}
-                data-input-clear-icon-style="color: #ff4040; border-color: #ff8080; background-color: #fff0f0; border-radius: 50%; font-size: 9px;"
             />
             <button className="search-bar-button" onClick={onClickHandle}>
                 Search

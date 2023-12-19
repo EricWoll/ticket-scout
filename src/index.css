@@ -106,7 +106,7 @@ header {
 .search-bar-input::-webkit-search-cancel-button {
     margin-right: 0.75em;
     -webkit-appearance: none;
-    content: URL(./public/assets/Close-Icon.png);
+    content: URL(./assets/Close-Icon.png);
     width: 1em;
     cursor: pointer;
 }

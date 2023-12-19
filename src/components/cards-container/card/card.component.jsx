@@ -24,13 +24,13 @@ function Card({ cardItem }) {
                         <img
                             className="event-card-save-icon"
                             onClick={removeEventHandler}
-                            src="../../../public/assets/Saved-Icon.png"
+                            src="./assets/Saved-Icon.png"
                         />
                     ) : (
                         <img
                             className="event-card-save-icon"
                             onClick={addEventHandler}
-                            src="../../../public/assets/Not-Saved-Icon.png"
+                            src="./assets/Not-Saved-Icon.png"
                         />
                     )}
                 </section>
