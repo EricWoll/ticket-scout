@@ -170,7 +170,7 @@ header {
 .event-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 1rem;
     padding: 0.25rem 0.5rem 0 0.5rem;
     margin-bottom: 0.5em;
@@ -189,11 +189,16 @@ header {
     text-wrap: nowrap;
     color: var(--mainColor);
     font-weight: 600;
+    max-height: 19px;
 }
 
 .event-card-content:hover .event-card-title {
     overflow: visible;
     animation: card-out 0.25s linear both;
+}
+
+.event-card-save-icon {
+    cursor: pointer;
 }
 
 .event-card-info {
@@ -238,10 +243,6 @@ header {
     color: var(--mainColor);
     border-color: var(--lightAccent);
     border-width: 0.2em;
-}
-
-.event-card-save-icon {
-    cursor: pointer;
 }
 
 /* No Events Show Flags */

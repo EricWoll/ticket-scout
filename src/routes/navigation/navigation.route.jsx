@@ -45,7 +45,7 @@ function Navigation() {
             <Outlet />
             <footer>
                 <p className="footer-contents">©Eric Woll 2023</p>
-                <p className="footer-contents">Made with TicketMaster API</p>
+                <p className="footer-contents">Made with Discovery API</p>
             </footer>
         </main>
     );
