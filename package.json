@@ -5,9 +5,11 @@
     "type": "module",
     "scripts": {
         "start": "vite",
+        "mobile-s": "vite --host",
         "build": "vite build --emptyOutDir",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "mobile-p": "vite preview --host"
     },
     "dependencies": {
         "react": "^18.2.0",
