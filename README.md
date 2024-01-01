@@ -4,6 +4,16 @@ A website that allows users to easily search through events from Ticketmaster an
 
 Website link: https://ticket-scout.netlify.app/
 
+## Important Note!
+
+This repository will no longer be updated by the creator (RaZ). Do not worry, the development of Ticket Scout is still continuing. There are many updates that will come to Ticket Scout in the future.
+
+The developing website will still be available to the public and reachable at the normal website link (https://ticket-scout.netlify.app/).
+
+This github repository that you are viewing currently will stay viewable to the public. However, the code in this repository will <strong>Not</strong> be hosted by the creator (RaZ).
+
+Any website that hosts this repository code that <strong>Do Not</strong> have a website address of https://ticket-scout.netlify.app/ are <strong>NOT</strong> created or endorsed by the creator of Ticket Scout (RaZ).
+
 ## Prettier Update Released!
 
 The <b>Prettier Update</b> has been launched, giving the site a new look!
