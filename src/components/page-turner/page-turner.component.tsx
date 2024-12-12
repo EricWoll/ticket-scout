@@ -1,4 +1,8 @@
-function PageTurner({ currentPage, nextPage, prevPage }) {
+export default function PageTurner({ currentPage, nextPage, prevPage }: {
+    currentPage: number;
+    nextPage: () => Promise<void>;
+    prevPage: () => Promise<void>;
+}) {
     return (
         <div className="page-turner-container">
             <button className="page-turner-button" onClick={prevPage}>
@@ -11,5 +15,3 @@ function PageTurner({ currentPage, nextPage, prevPage }) {
         </div>
     );
 }
-
-export default PageTurner;

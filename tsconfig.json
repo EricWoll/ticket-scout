@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "es2020", // Ensures compatibility with import.meta
+		"module": "es2020", // Enables modern module system
+		"moduleResolution": "node", // Resolves modules in Node.js style
+		"jsx": "react-jsx", // Supports React JSX syntax
+		"esModuleInterop": true, // Allows default imports from CommonJS modules
+		"allowSyntheticDefaultImports": true, // Allows default imports even if module doesn't export one
+		"strict": true, // Enables all strict type-checking options
+		"forceConsistentCasingInFileNames": true, // Enforces consistent file name casing
+		"skipLibCheck": true // Skips type checks on declaration files
+	},
+	"include": ["src"]
+}
