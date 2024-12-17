@@ -10,7 +10,7 @@ export default function SearchCardsContainer({
 	}
 
 	return (
-		<div className="m-3">
+		<div className="m-3 grid gap-4 grid-cols-[repeat(auto-fill,18rem)] justify-center">
 			{cards._embedded.events.map((card: EventCard) => (
 				<Card key={card.id} cardItem={card} />
 			))}

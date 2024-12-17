@@ -10,7 +10,7 @@ export default function SavedCardsContainer({
 	}
 
 	return (
-		<div className="cards-container">
+		<div className="m-3 grid gap-4 grid-cols-[repeat(auto-fill,18rem)] justify-center">
 			{cards.map((card: EventCard) => (
 				<Card key={card.id} cardItem={card} />
 			))}

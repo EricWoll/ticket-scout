@@ -1,10 +1,14 @@
 import { useContext, useState } from "react";
 import { RetrivedEventsContext } from "../../contexts/retrieved-events.context";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
 	const { searchEvents, searchTerm } = useContext(RetrivedEventsContext);
 
 	const [inputValue, setInputValue] = useState<string>(searchTerm);
+
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	const onInputHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
@@ -13,18 +17,17 @@ export default function SearchBar() {
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			left: 0,
-			behavior: "smooth", // Optional, for smooth scrolling
 		});
 	};
 
 	const onClickHandle = (event: React.MouseEvent<HTMLButtonElement>) => {
-		if (searchTerm == inputValue) return;
+		if (searchTerm == inputValue && location.pathname === "/") return;
 		event.preventDefault();
-
 		searchEvents(inputValue);
+		navigate("/");
 		scrollToTop();
 	};
+
 	return (
 		<div className="flex flex-nowrap gap-1 bg-white shadow-main w-4/5 px-5 py-2 mt-2 mx-auto rounded-md">
 			<input

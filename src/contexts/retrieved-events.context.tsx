@@ -55,7 +55,7 @@ export const RetrivedEventsProvider: React.FC<{
 		if (data) {
 			setCurrentEvents(data);
 			setCurrentPage((prev) => prev + 1);
-			window.scrollTo({ top: 0, behavior: "smooth" });
+			window.scrollTo({ top: 0 });
 		}
 	}, [searchTerm, currentPage]);
 
@@ -65,7 +65,7 @@ export const RetrivedEventsProvider: React.FC<{
 		if (data) {
 			setCurrentEvents(data);
 			setCurrentPage((prev) => prev - 1);
-			window.scrollTo({ top: 0, behavior: "smooth" });
+			window.scrollTo({ top: 0 });
 		}
 	}, [searchTerm, currentPage]);
 

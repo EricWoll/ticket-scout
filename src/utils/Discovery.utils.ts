@@ -24,7 +24,20 @@ export default async function getData(
 	}
 }
 
-async function convertToJson(res: Response): Promise<EventSearch> {
+export async function getEventInfo(eventId: string) {
+	const params = new URLSearchParams();
+	params.append("apikey", apiKey);
+	try {
+		const response = await fetch(
+			`${baseURL}events/${eventId}.json?${params.toString()}`
+		);
+		return await convertToJson(response);
+	} catch (error: any) {
+		throw new Error(`Failed to fetch data: ${error.message}`);
+	}
+}
+
+async function convertToJson(res: Response): Promise<any> {
 	const resJson = await res.json();
 	if (res.ok) {
 		return resJson;

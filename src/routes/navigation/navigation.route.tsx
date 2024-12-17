@@ -23,7 +23,7 @@ export default function Navigation() {
 
 	return (
 		<main className="flex flex-col min-h-screen">
-			<header className="sticky top-0">
+			<header className="sticky top-0 z-10">
 				<section className="px-2 py-3 relative bg-white flex flex-row flex-nowrap justify-between items-center w-full shadow-main">
 					<MenuIcon
 						className={`select-none cursor-pointer rounded-md ${
