@@ -11,7 +11,7 @@ export default function PageTurner({
 		<div className="w-full flex justify-center">
 			<section className="shadow-main bg-white flex px-5 py-2 gap-4 rounded-md">
 				<button
-					className="rounded-md px-2 hover:bg-Medium_slate_blue hover:text-white"
+					className="rounded-md px-2 hover:bg-Medium_slate_blue hover:text-white py-1"
 					onClick={prevPage}
 				>
 					Prev
@@ -20,7 +20,7 @@ export default function PageTurner({
 					{currentPage + 1}
 				</p>
 				<button
-					className="rounded-md px-2 hover:bg-Medium_slate_blue hover:text-white"
+					className="rounded-md px-2 hover:bg-Medium_slate_blue hover:text-white py-1"
 					onClick={nextPage}
 				>
 					Next

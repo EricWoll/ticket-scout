@@ -42,49 +42,152 @@ export default function EventPage() {
 			setPageLoading(true);
 			if (cardId) {
 				setCardInfo(await getEventInfo(cardId));
+				console.log(cardInfo);
 			}
 			setPageLoading(false);
 		};
 		getData();
-		console.log(cardInfo);
 	}, [cardId]);
 
 	if (!cardInfo || pageLoading) {
 		return <div>Loading Event...</div>;
 	}
 
+	const date = new Date(cardInfo.dates.start.dateTime);
+
 	return (
-		<div className="m-4">
-			<section className="flex flex-wrap gap-4">
-				<Images
-					images={cardInfo.images}
-					ratio="16_9"
-					width={1024}
-					className="rounded-md max-w-96 min-w-20"
-				/>
-				<section className="flex flex-nowrap gap-2 items-center h-fit">
-					{savedEvent ? (
-						<SavedHeart
-							className="select-none cursor-pointer"
-							onClick={removeEventHandler}
-						/>
-					) : (
-						<UnSavedHeart
-							className="select-none cursor-pointer"
-							onClick={addEventHandler}
-						/>
-					)}
-					<h2 className="text-2xl font-bold">{cardInfo.name}</h2>
+		<main className="m-4">
+			<section className="flex items-start my-4 flex-wrap justify-center">
+				<div className="p-2 bg-white shadow-main_inset rounded-md max-w-md min-w-20">
+					<Images
+						images={cardInfo.images}
+						ratio="16_9"
+						width={1024}
+						className="rounded-md"
+					/>
+				</div>
+				<section className="flex flex-col gap-2 ml-6 flex-grow">
+					<section className="flex items-center">
+						{savedEvent ? (
+							<SavedHeart
+								className="select-none cursor-pointer"
+								onClick={removeEventHandler}
+							/>
+						) : (
+							<UnSavedHeart
+								className="select-none cursor-pointer"
+								onClick={addEventHandler}
+							/>
+						)}
+						<h2 className="text-2xl font-bold">{cardInfo.name}</h2>
+					</section>
+					<section className="shadow-main_inset rounded-md bg-white p-2 flex flex-col gap-1 w-full">
+						<p>
+							Event Type:{" "}
+							{cardInfo.classifications[0].subGenre.name}{" "}
+							{cardInfo.classifications[0].genre.name}
+						</p>
+						<p>
+							Age Restrictions:
+							{cardInfo.ageRestrictions.legalAgeEnforced
+								? " Must be of Leagal Age"
+								: " None"}
+						</p>
+						<p>
+							Event Date:{" "}
+							{date.toLocaleString("en-us", {
+								month: "short",
+								day: "numeric",
+								year: "numeric",
+							})}
+						</p>
+						<p>
+							Event Time:{" "}
+							{date.toLocaleString("en-us", {
+								timeZone: cardInfo.dates.timezone,
+								hour: "2-digit",
+								minute: "2-digit",
+							})}
+						</p>
+						<p>
+							Price Range ({cardInfo.priceRanges[0].currency}): $
+							{cardInfo.priceRanges[0].min}
+							{" - "}${cardInfo.priceRanges[0].max}
+						</p>
+					</section>
+					<Link
+						to={cardInfo.url}
+						target="_blank"
+						className="flex flex-row self-stretch gap-1 justify-center px-1 py-2 rounded-md bg-Medium_slate_blue text-white"
+					>
+						Book Tickets
+					</Link>
 				</section>
 			</section>
-
-			{/*
-                        Look at Console Logs to see what you want to add!
-            */}
-
-			<Link to={cardInfo.url} target="_blank">
-				Book Tickets
-			</Link>
-		</div>
+			<section className="bg-white shadow-main p-2 grid gap-2 my-4 rounded-md">
+				<h2 className="text-2xl">Presale Information</h2>
+				{cardInfo.sales.presales.length > 0 && (
+					<div className="shadow-main_inset flex flex-col gap-1 p-2 rounded-md">
+						{cardInfo.sales.presales.map((preSale, index) => {
+							return (
+								<div
+									key={index}
+									className="flex flex-wrap gap-12"
+								>
+									<p>
+										Start:{" "}
+										{new Date(
+											preSale.startDateTime
+										).toLocaleString("en-us", {
+											timeZone: cardInfo.dates.timezone,
+											hour: "2-digit",
+											minute: "2-digit",
+										})}
+									</p>
+									<p>
+										End:{" "}
+										{new Date(
+											preSale.endDateTime
+										).toLocaleString("en-us", {
+											timeZone: cardInfo.dates.timezone,
+											hour: "2-digit",
+											minute: "2-digit",
+										})}
+									</p>
+								</div>
+							);
+						})}
+					</div>
+				)}
+			</section>
+			<section className="bg-white shadow-main p-2 grid gap-2 my-4 rounded-md">
+				<p className="text-2xl">Public Sales</p>
+				<div className="shadow-main_inset flex flex-col gap-1 p-2 rounded-md">
+					<div className="flex flex-wrap gap-12">
+						<p>
+							Start:{" "}
+							{new Date(
+								cardInfo.sales.public.startDateTime
+							).toLocaleString("en-us", {
+								timeZone: cardInfo.dates.timezone,
+								hour: "2-digit",
+								minute: "2-digit",
+							})}
+						</p>
+						<p>
+							End:{" "}
+							{new Date(
+								cardInfo.sales.public.endDateTime
+							).toLocaleString("en-us", {
+								timeZone: cardInfo.dates.timezone,
+								hour: "2-digit",
+								minute: "2-digit",
+							})}
+						</p>
+					</div>
+					<p>Ticket Limit: {cardInfo.ticketLimit.info}</p>
+				</div>
+			</section>
+		</main>
 	);
 }

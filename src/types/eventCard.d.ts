@@ -44,12 +44,25 @@ interface EventCard {
 	promoter: {
 		id: string;
 	};
+	ageRestrictions: {
+		id: string;
+		legalAgeEnforced: boolean;
+	};
 	sales: {
+		presales: Array<{
+			startDateTime: string;
+			endDateTime: string;
+			name: string;
+		}>;
 		public: {
 			startDateTime: string;
 			startTBD: boolean;
 			endDateTime: string;
 		};
+	};
+	ticketLimit: {
+		id: string;
+		info: string;
 	};
 	test: boolean;
 	type: string;

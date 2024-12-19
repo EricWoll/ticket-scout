@@ -48,7 +48,7 @@ function Card({ cardItem }: { cardItem: EventCard }) {
 				<h2 className="text-center overflow-clip font-bold">
 					{cardItem.name}
 				</h2>
-				<section className="flex flex-none justify-between">
+				<section className="flex flex-none justify-between mb-1 mt-auto">
 					<p className="text-sm text-gray-600 mt-auto mb-0">
 						{date.toLocaleString("en-us", {
 							month: "short",
